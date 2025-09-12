@@ -12,7 +12,7 @@ def main():
 
     print(f"Previsão para {city_name} via OpenWeather:")
     for f in forecast:
-        print("f{f.date | {f.temperature}ºC | {f.description}")
+        print(f"{f.date} | {f.temperature}ºC | {f.description}")
 
 if __name__ == "__main__":
     main()
