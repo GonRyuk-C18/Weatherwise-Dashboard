@@ -5,19 +5,23 @@ class OpenMeteo:
     def __init__(self):
         pass
     def get_forecast(self,latitude,longitude):
-        url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m&timezone=auto"
+        url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto"
         response = requests.get(url).json()
 
         forecast = []
         try:
-            times = response['hourly']['time']
-            temps = response['hourly']['temperature_2m']
+            times = response['daily']['time']
+            temps_max = response['daily']['temperature_2m_max']
+            temps_min = response['daily']['temperature_2m_min']
+
 
             for item in range(5):
                 forecast.append(Forecast(
                     source="OpenMeteo",
                     date=times[item],
-                    temperature=temps[item],
+                    temperature=None,
+                    temperature_max=temps_max[item],
+                    temperature_min=temps_min[item],
                     description=None
                 ))
         except KeyError:
