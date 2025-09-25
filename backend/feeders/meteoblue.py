@@ -1,5 +1,6 @@
 import requests
 from backend.models.forecast import Forecast
+from backend.models.norm_forecast import NormForecast
 
 class MeteoBlue:
     def __init__(self, key):
@@ -9,6 +10,7 @@ class MeteoBlue:
         url = f"https://my.meteoblue.com/packages/basic-day?lat={latitude}&lon={longitude}&apikey={self.key}&format=json"
         response = requests.get(url).json()
 
+        normecast = NormForecast('Weatherwise-Dashboard\\meteo_code.txt')
         forecast = []
         try:
             times = response['data_day']['time']
@@ -34,7 +36,7 @@ class MeteoBlue:
                     precipitation_h=precipitation_h[item],
                     wind_speed=wind_speed[item],
                     wind_direction=wind_direction[item],
-                    description=descriptions[item]
+                    description=NormForecast.get_weather_code(normecast,descriptions[item])
                 ))
         except KeyError:
             print("Error on interper MeteoBlue.")

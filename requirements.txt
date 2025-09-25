@@ -1,5 +1,5 @@
 python-dotenv
 requests
 flask
-flas-cors
+flask-cors
 .env #with API Keys

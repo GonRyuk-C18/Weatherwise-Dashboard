@@ -1,0 +1,47 @@
+### 1
+Céu limpo
+
+### 2
+Principalmente claro
+
+### 3
+Parcialmente nublado
+
+### 5
+Nublado
+
+### 6
+Nevoeiro com chuva
+
+###7
+Chuva moderada
+
+###8
+Trovoadas
+
+###9
+Neve leve
+
+###10
+Nevoeiro de geada depositado
+
+###11
+Nublado com neve
+
+###12
+Nublado com chuva leve
+
+###13
+Nublado com neve leve
+
+###14
+Nublado com chuva
+
+###15
+Nublado com neve
+
+###16
+Nublado com chuva leve
+
+###17
+Nublado neve leve
