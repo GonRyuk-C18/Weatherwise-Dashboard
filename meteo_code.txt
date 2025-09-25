@@ -13,35 +13,35 @@ Nublado
 ### 6
 Nevoeiro com chuva
 
-###7
+### 7
 Chuva moderada
 
-###8
+### 8
 Trovoadas
 
-###9
+### 9
 Neve leve
 
-###10
+### 10
 Nevoeiro de geada depositado
 
-###11
+### 11
 Nublado com neve
 
-###12
+### 12
 Nublado com chuva leve
 
-###13
+### 13
 Nublado com neve leve
 
-###14
+### 14
 Nublado com chuva
 
-###15
+### 15
 Nublado com neve
 
-###16
+### 16
 Nublado com chuva leve
 
-###17
+### 17
 Nublado neve leve

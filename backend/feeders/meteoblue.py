@@ -7,10 +7,10 @@ class MeteoBlue:
         self.key = key
 
     def get_forecast(self, latitude, longitude):
-        url = f"https://my.meteoblue.com/packages/basic-day?lat={latitude}&lon={longitude}&apikey={self.key}&format=json"
+        url = f"https://my.meteoblue.com/packages/basic-1h_basic-day?lat={latitude}&lon={longitude}&apikey={self.key}&format=json"
         response = requests.get(url).json()
 
-        normecast = NormForecast('Weatherwise-Dashboard\\meteo_code.txt')
+        normecast = NormForecast('.../Weatherwise-Dashboard/meteo_code.txt')
         forecast = []
         try:
             times = response['data_day']['time']
@@ -20,7 +20,7 @@ class MeteoBlue:
             uv = response['data_day']['uvindex']
             precipitation = response['data_day']['precipitation_probability']
             precipitation_h = response['data_day']['precipitation_hours']
-            wind_speed = response['data_day']['windspeed']
+            wind_speed = response['data_day']['windspeed_mean']
             wind_direction = response['data_day']['winddirection']
             descriptions = response['data_day']['pictocode']
 
@@ -28,9 +28,9 @@ class MeteoBlue:
                 forecast.append(Forecast(
                     source="MeteoBlue",
                     date=times[item],
-                    temperature=temps[item],
-                    temperature_max=temps_max[item],
-                    temperature_min=temps_min[item],
+                    temperature=int(temps[item]),
+                    temperature_max=int(temps_max[item]),
+                    temperature_min=int(temps_min[item]),
                     uv=uv[item],
                     precipitation=precipitation[item],
                     precipitation_h=precipitation_h[item],

@@ -12,7 +12,7 @@ class OpenMeteo:
         url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_mean,wind_speed_10m_mean,precipitation_hours,winddirection_10m_dominant,temperature_2m_mean"
         response = requests.get(url).json()
 
-        normecast = NormForecast('Weatherwise-Dashboard\\weather_code.txt')
+        normecast = NormForecast('.../Weatherwise-Dashboard/weather_code.txt')
         forecast = []
         try:
             weather_code = response['daily']['weather_code']
@@ -32,9 +32,9 @@ class OpenMeteo:
                 forecast.append(Forecast(
                     source="OpenMeteo",
                     date=times[item],
-                    temperature=temps[item],
-                    temperature_max=temps_max[item],
-                    temperature_min=temps_min[item],
+                    temperature=int(temps[item]),
+                    temperature_max=int(temps_max[item]),
+                    temperature_min=int(temps_min[item]),
                     uv=uv[item],
                     precipitation=precipitation[item],
                     precipitation_h=precipitation_h[item],

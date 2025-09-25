@@ -45,6 +45,7 @@ def main():
     forecast = client1.get_forecast(city_name)
     client2 = MeteoBlue(API_KEY2)
     forecast2 = client2.get_forecast(38.7169, 9.1399)
+
     client3 = OpenMeteo()
     forecast3 = client3.get_forecast(38.7169, 9.1399)
 
